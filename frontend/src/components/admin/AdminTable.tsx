@@ -25,8 +25,8 @@ export default function AdminTable<T extends { id: number }>({
   emptyMessage = 'No records yet.',
 }: AdminTableProps<T>) {
   return (
-    <div className="overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800">
-      <table className="w-full text-left text-sm">
+    <div className="overflow-x-auto rounded-xl border border-neutral-200 dark:border-neutral-800">
+      <table className="w-full min-w-[640px] text-left text-sm">
         <thead className="bg-neutral-50 text-xs uppercase tracking-wide text-neutral-500 dark:bg-neutral-900 dark:text-neutral-400">
           <tr>
             {columns.map((col) => (
@@ -66,7 +66,7 @@ export default function AdminTable<T extends { id: number }>({
                           type="button"
                           onClick={() => onEdit(row)}
                           aria-label="Edit"
-                          className="rounded-lg p-2 text-neutral-500 hover:bg-neutral-100 hover:text-indigo-600 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-indigo-400"
+                          className="flex h-10 w-10 items-center justify-center rounded-lg text-neutral-500 hover:bg-neutral-100 hover:text-indigo-600 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-indigo-400"
                         >
                           <FaPen size={14} />
                         </button>
@@ -76,7 +76,7 @@ export default function AdminTable<T extends { id: number }>({
                           type="button"
                           onClick={() => onDelete(row)}
                           aria-label="Delete"
-                          className="rounded-lg p-2 text-neutral-500 hover:bg-red-50 hover:text-red-600 dark:text-neutral-400 dark:hover:bg-red-500/10 dark:hover:text-red-400"
+                          className="flex h-10 w-10 items-center justify-center rounded-lg text-neutral-500 hover:bg-red-50 hover:text-red-600 dark:text-neutral-400 dark:hover:bg-red-500/10 dark:hover:text-red-400"
                         >
                           <FaTrash size={14} />
                         </button>

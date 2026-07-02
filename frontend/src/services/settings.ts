@@ -8,6 +8,7 @@ export interface SettingPayload {
   site_description?: string
   logo?: File | null
   favicon?: File | null
+  photo?: File | null
   email?: string
   phone?: string
   address?: string

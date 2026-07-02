@@ -160,7 +160,7 @@ export default function Contact() {
                         target="_blank"
                         rel="noreferrer"
                         aria-label={link.platform}
-                        className="rounded-full border border-neutral-200 p-3 text-neutral-600 hover:border-indigo-300 hover:text-indigo-600 dark:border-neutral-800 dark:text-neutral-300 dark:hover:text-indigo-400"
+                        className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-200 text-neutral-600 hover:border-indigo-300 hover:text-indigo-600 dark:border-neutral-800 dark:text-neutral-300 dark:hover:text-indigo-400"
                       >
                         <Icon size={16} />
                       </a>

@@ -70,7 +70,7 @@ export default function AdminLayout() {
 
   return (
     <div className="flex min-h-svh bg-neutral-50 dark:bg-neutral-950">
-      <aside className="hidden w-64 shrink-0 flex-col border-r border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900 lg:flex">
+      <aside className="safe-top safe-left safe-bottom hidden w-64 shrink-0 flex-col border-r border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900 lg:flex">
         <div className="flex items-center gap-2 border-b border-neutral-200 px-6 py-5 dark:border-neutral-800">
           <span className="text-lg font-semibold text-neutral-900 dark:text-white">Admin</span>
         </div>
@@ -80,10 +80,15 @@ export default function AdminLayout() {
       {mobileOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)} />
-          <aside className="absolute inset-y-0 left-0 flex w-64 flex-col bg-white dark:bg-neutral-900">
+          <aside className="safe-top safe-bottom absolute inset-y-0 left-0 flex w-64 flex-col bg-white dark:bg-neutral-900">
             <div className="flex items-center justify-between border-b border-neutral-200 px-6 py-5 dark:border-neutral-800">
               <span className="text-lg font-semibold text-neutral-900 dark:text-white">Admin</span>
-              <button type="button" onClick={() => setMobileOpen(false)} aria-label="Close menu">
+              <button
+                type="button"
+                onClick={() => setMobileOpen(false)}
+                aria-label="Close menu"
+                className="flex h-11 w-11 items-center justify-center"
+              >
                 <FaXmark size={18} />
               </button>
             </div>
@@ -93,12 +98,12 @@ export default function AdminLayout() {
       )}
 
       <div className="flex flex-1 flex-col">
-        <header className="flex items-center justify-between border-b border-neutral-200 bg-white px-4 py-4 dark:border-neutral-800 dark:bg-neutral-900 sm:px-6">
+        <header className="safe-top flex items-center justify-between border-b border-neutral-200 bg-white px-4 py-4 dark:border-neutral-800 dark:bg-neutral-900 sm:px-6">
           <button
             type="button"
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"
-            className="text-neutral-600 dark:text-neutral-300 lg:hidden"
+            className="flex h-11 w-11 items-center justify-center text-neutral-600 dark:text-neutral-300 lg:hidden"
           >
             <FaBars size={18} />
           </button>

@@ -34,7 +34,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   return (
     <ToastContext.Provider value={{ showToast }}>
       {children}
-      <div className="pointer-events-none fixed inset-x-0 top-4 z-[100] flex flex-col items-center gap-2 px-4">
+      <div className="safe-top pointer-events-none fixed inset-x-0 top-4 z-[100] flex flex-col items-center gap-2 px-4">
         <AnimatePresence>
           {toasts.map((toast) => (
             <motion.div
@@ -54,7 +54,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                 type="button"
                 onClick={() => dismiss(toast.id)}
                 aria-label="Dismiss"
-                className="ml-2 opacity-60 hover:opacity-100"
+                className="-mr-2 ml-1 flex h-11 w-11 items-center justify-center opacity-60 hover:opacity-100"
               >
                 <FaXmark size={14} />
               </button>

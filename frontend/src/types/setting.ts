@@ -4,6 +4,7 @@ export interface Setting {
   site_description: string | null
   logo: string | null
   favicon: string | null
+  photo: string | null
   email: string | null
   phone: string | null
   address: string | null

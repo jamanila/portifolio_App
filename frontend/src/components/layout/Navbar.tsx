@@ -26,9 +26,11 @@ export default function Navbar() {
         : 'text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white'
     }`
 
+  const mobileLinkClass = (args: { isActive: boolean }) => `block py-2.5 ${linkClass(args)}`
+
   return (
-    <header className="sticky top-0 z-50 border-b border-neutral-200/80 bg-white/80 backdrop-blur-lg dark:border-neutral-800/80 dark:bg-neutral-950/80">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <header className="safe-top sticky top-0 z-50 border-b border-neutral-200/80 bg-white/80 backdrop-blur-lg dark:border-neutral-800/80 dark:bg-neutral-950/80">
+      <nav className="safe-left safe-right mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <NavLink to="/" className="text-lg font-semibold text-neutral-900 dark:text-white">
           {settings?.site_name ?? 'Portfolio'}
         </NavLink>
@@ -46,7 +48,7 @@ export default function Navbar() {
             type="button"
             onClick={toggleTheme}
             aria-label="Toggle dark mode"
-            className="rounded-full p-2 text-neutral-600 transition-colors hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
+            className="flex h-11 w-11 items-center justify-center rounded-full text-neutral-600 transition-colors hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
           >
             {theme === 'dark' ? <FaSun size={16} /> : <FaMoon size={16} />}
           </button>
@@ -54,7 +56,7 @@ export default function Navbar() {
             type="button"
             onClick={() => setIsOpen((v) => !v)}
             aria-label="Toggle menu"
-            className="rounded-full p-2 text-neutral-600 transition-colors hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800 md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full text-neutral-600 transition-colors hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800 md:hidden"
           >
             {isOpen ? <FaXmark size={18} /> : <FaBars size={18} />}
           </button>
@@ -70,12 +72,12 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="overflow-hidden border-t border-neutral-200 dark:border-neutral-800 md:hidden"
           >
-            <div className="flex flex-col gap-4 px-4 py-4 sm:px-6">
+            <div className="flex flex-col px-4 py-2 sm:px-6">
               {NAV_LINKS.map((link) => (
                 <NavLink
                   key={link.to}
                   to={link.to}
-                  className={linkClass}
+                  className={mobileLinkClass}
                   end={link.to === '/'}
                   onClick={() => setIsOpen(false)}
                 >

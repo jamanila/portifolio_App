@@ -76,7 +76,7 @@ export default function TestimonialsSection() {
                     type="button"
                     onClick={() => goTo(index - 1)}
                     aria-label="Previous testimonial"
-                    className="rounded-full border border-neutral-300 p-2 text-neutral-600 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 text-neutral-600 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800"
                   >
                     <FaChevronLeft size={14} />
                   </button>
@@ -87,17 +87,21 @@ export default function TestimonialsSection() {
                         type="button"
                         onClick={() => setIndex(i)}
                         aria-label={`Go to testimonial ${i + 1}`}
-                        className={`h-2 w-2 rounded-full transition-colors ${
-                          i === index ? 'bg-indigo-600' : 'bg-neutral-300 dark:bg-neutral-700'
-                        }`}
-                      />
+                        className="flex h-8 w-8 items-center justify-center"
+                      >
+                        <span
+                          className={`h-2 w-2 rounded-full transition-colors ${
+                            i === index ? 'bg-indigo-600' : 'bg-neutral-300 dark:bg-neutral-700'
+                          }`}
+                        />
+                      </button>
                     ))}
                   </div>
                   <button
                     type="button"
                     onClick={() => goTo(index + 1)}
                     aria-label="Next testimonial"
-                    className="rounded-full border border-neutral-300 p-2 text-neutral-600 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 text-neutral-600 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800"
                   >
                     <FaChevronRight size={14} />
                   </button>

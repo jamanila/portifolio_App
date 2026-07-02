@@ -19,6 +19,7 @@ class UpdateSettingRequest extends FormRequest
             'site_description' => ['nullable', 'string'],
             'logo' => ['nullable', 'image', 'max:2048'],
             'favicon' => ['nullable', 'image', 'max:1024'],
+            'photo' => ['nullable', 'image', 'max:4096'],
             'email' => ['nullable', 'email', 'max:255'],
             'phone' => ['nullable', 'string', 'max:50'],
             'address' => ['nullable', 'string', 'max:255'],

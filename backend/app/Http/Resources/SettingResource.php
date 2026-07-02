@@ -16,6 +16,7 @@ class SettingResource extends JsonResource
             'site_description' => $this->site_description,
             'logo' => $this->logo ? Storage::disk('public')->url($this->logo) : null,
             'favicon' => $this->favicon ? Storage::disk('public')->url($this->favicon) : null,
+            'photo' => $this->photo ? Storage::disk('public')->url($this->photo) : null,
             'email' => $this->email,
             'phone' => $this->phone,
             'address' => $this->address,

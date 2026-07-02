@@ -54,19 +54,30 @@ export default function Hero() {
           className="relative mx-auto aspect-square w-full max-w-md"
         >
           <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500 via-violet-500 to-fuchsia-500 opacity-20 blur-3xl" />
-          <div className="relative flex h-full w-full items-center justify-center rounded-3xl border border-neutral-200 bg-white/60 shadow-2xl backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/60">
-            <div className="w-4/5 space-y-3 rounded-xl bg-neutral-900 p-6 font-mono text-xs text-neutral-100 shadow-lg dark:bg-black">
-              <div className="flex gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-red-500" />
-                <span className="h-2.5 w-2.5 rounded-full bg-yellow-500" />
-                <span className="h-2.5 w-2.5 rounded-full bg-green-500" />
-              </div>
-              <p><span className="text-fuchsia-400">const</span> <span className="text-sky-400">dev</span> = {'{'}</p>
-              <p className="pl-4">stack: [<span className="text-emerald-400">'React'</span>, <span className="text-emerald-400">'Laravel'</span>],</p>
-              <p className="pl-4">ships: <span className="text-orange-400">true</span></p>
-              <p>{'}'}</p>
+
+          {settings?.photo ? (
+            <div className="relative h-full w-full overflow-hidden rounded-3xl border border-neutral-200 shadow-2xl dark:border-neutral-800">
+              <img
+                src={settings.photo}
+                alt={settings.site_name ?? 'Profile photo'}
+                className="h-full w-full object-cover"
+              />
             </div>
-          </div>
+          ) : (
+            <div className="relative flex h-full w-full items-center justify-center rounded-3xl border border-neutral-200 bg-white/60 shadow-2xl backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/60">
+              <div className="w-4/5 space-y-3 rounded-xl bg-neutral-900 p-6 font-mono text-xs text-neutral-100 shadow-lg dark:bg-black">
+                <div className="flex gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-red-500" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-yellow-500" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-green-500" />
+                </div>
+                <p><span className="text-fuchsia-400">const</span> <span className="text-sky-400">dev</span> = {'{'}</p>
+                <p className="pl-4">stack: [<span className="text-emerald-400">'React'</span>, <span className="text-emerald-400">'Laravel'</span>],</p>
+                <p className="pl-4">ships: <span className="text-orange-400">true</span></p>
+                <p>{'}'}</p>
+              </div>
+            </div>
+          )}
         </motion.div>
       </Container>
     </section>

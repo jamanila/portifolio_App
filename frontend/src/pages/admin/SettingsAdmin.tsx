@@ -22,6 +22,7 @@ export default function SettingsAdmin() {
   const { showToast } = useToast()
   const { refresh } = useSiteData()
   const [form, setForm] = useState<SettingPayload>(EMPTY_FORM)
+  const [currentPhoto, setCurrentPhoto] = useState<string | null>(null)
   const [currentLogo, setCurrentLogo] = useState<string | null>(null)
   const [currentFavicon, setCurrentFavicon] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -42,6 +43,7 @@ export default function SettingsAdmin() {
           meta_description: data.meta_description ?? '',
           meta_keywords: data.meta_keywords ?? '',
         })
+        setCurrentPhoto(data.photo)
         setCurrentLogo(data.logo)
         setCurrentFavicon(data.favicon)
       })
@@ -100,6 +102,13 @@ export default function SettingsAdmin() {
           rows={3}
           value={form.site_description}
           onChange={(e) => setForm({ ...form, site_description: e.target.value })}
+        />
+
+        <FileField
+          id="photo"
+          label="Profile Photo"
+          currentUrl={currentPhoto}
+          onChange={(file) => setForm({ ...form, photo: file })}
         />
 
         <div className="grid gap-4 sm:grid-cols-2">

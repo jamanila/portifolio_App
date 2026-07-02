@@ -37,6 +37,11 @@ class SettingController extends Controller
             $data['favicon'] = $this->storeImage($request->file('favicon'), 'settings');
         }
 
+        if ($request->hasFile('photo')) {
+            $this->deleteImage($setting->photo);
+            $data['photo'] = $this->storeImage($request->file('photo'), 'settings');
+        }
+
         $setting = $this->settingService->update($data);
 
         return response()->json(new SettingResource($setting));

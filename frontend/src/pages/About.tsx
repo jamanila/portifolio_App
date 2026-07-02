@@ -58,6 +58,13 @@ export default function About() {
             transition={{ duration: 0.5 }}
             className="mx-auto max-w-2xl text-center"
           >
+            {settings?.photo && (
+              <img
+                src={settings.photo}
+                alt={settings.site_name ?? 'Profile photo'}
+                className="mx-auto mb-6 h-32 w-32 rounded-full border border-neutral-200 object-cover shadow-md dark:border-neutral-800"
+              />
+            )}
             <p className="text-sm font-semibold uppercase tracking-wide text-indigo-600 dark:text-indigo-400">
               About Me
             </p>

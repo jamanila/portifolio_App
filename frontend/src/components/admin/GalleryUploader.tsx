@@ -69,9 +69,9 @@ export default function GalleryUploader({
                 onClick={() => handleDeleteExisting(image.id)}
                 disabled={isDeletingId === image.id}
                 aria-label="Delete image"
-                className="absolute right-2 top-2 rounded-full bg-black/60 p-1.5 text-white opacity-0 transition-opacity group-hover:opacity-100 disabled:opacity-60"
+                className="absolute right-1 top-1 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white opacity-100 transition-opacity disabled:opacity-60 sm:opacity-0 sm:group-hover:opacity-100"
               >
-                <FaTrash size={12} />
+                <FaTrash size={14} />
               </button>
             </div>
           ))}
@@ -94,7 +94,7 @@ export default function GalleryUploader({
                 type="button"
                 onClick={() => removeNewImage(index)}
                 aria-label="Remove"
-                className="rounded-lg p-2 text-neutral-500 hover:bg-red-50 hover:text-red-600 dark:text-neutral-400 dark:hover:bg-red-500/10"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-neutral-500 hover:bg-red-50 hover:text-red-600 dark:text-neutral-400 dark:hover:bg-red-500/10"
               >
                 <FaTrash size={14} />
               </button>
