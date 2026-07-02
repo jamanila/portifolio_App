@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
+class UpdateProjectRequest extends FormRequest
+{
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    public function rules(): array
+    {
+        return [
+            'category_id' => ['nullable', 'exists:categories,id'],
+            'title' => ['sometimes', 'required', 'string', 'max:255'],
+            'slug' => ['nullable', 'string', 'max:255', Rule::unique('projects', 'slug')->ignore($this->route('project'))],
+            'short_description' => ['sometimes', 'required', 'string', 'max:500'],
+            'description' => ['sometimes', 'required', 'string'],
+            'features' => ['nullable', 'array'],
+            'challenges' => ['nullable', 'string'],
+            'solutions' => ['nullable', 'string'],
+            'thumbnail' => ['nullable', 'image', 'max:5120'],
+            'demo_url' => ['nullable', 'url', 'max:255'],
+            'repo_url' => ['nullable', 'url', 'max:255'],
+            'demo_video_url' => ['nullable', 'url', 'max:255'],
+            'price' => ['nullable', 'numeric', 'min:0'],
+            'is_purchasable' => ['boolean'],
+            'is_featured' => ['boolean'],
+            'status' => ['sometimes', 'required', 'in:draft,published'],
+            'sort_order' => ['integer', 'min:0'],
+            'technology_ids' => ['nullable', 'array'],
+            'technology_ids.*' => ['exists:technologies,id'],
+            'images' => ['nullable', 'array'],
+            'images.*.file' => ['required_with:images', 'image', 'max:5120'],
+            'images.*.alt_text' => ['nullable', 'string', 'max:255'],
+        ];
+    }
+}
