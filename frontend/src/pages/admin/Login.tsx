@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { useAuth } from '@/contexts/AuthContext'
+import { getErrorMessage } from '@/utils/apiError'
 
 export default function Login() {
   const { user, isLoading, login } = useAuth()
@@ -23,8 +24,8 @@ export default function Login() {
     try {
       await login(email, password)
       navigate('/admin')
-    } catch {
-      setError('Invalid email or password.')
+    } catch (err) {
+      setError(getErrorMessage(err, 'Invalid email or password.'))
     } finally {
       setIsSubmitting(false)
     }
